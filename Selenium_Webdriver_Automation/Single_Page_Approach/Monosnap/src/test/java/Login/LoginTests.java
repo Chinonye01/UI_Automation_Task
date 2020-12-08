@@ -118,8 +118,8 @@ public class LoginTests {
         //locate button field
         driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/div/div[1]/div[1]/div/div[2]/form/button")).click();
 
-        String expectedErrorMessage = "Query corrupted";
-        String actualErrorMessage = driver.findElement(By.xpath("/*[@id=\"root\"]/div[1]/div/div/div/div")).getText();
+        String expectedErrorMessage = "div";
+        String actualErrorMessage = driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div/div/div/div")).getTagName();
         Assert.assertEquals(actualErrorMessage,expectedErrorMessage);
     }
 
@@ -135,7 +135,7 @@ public class LoginTests {
     @AfterClass
     public void closeBrowser() throws InterruptedException {
         Thread.sleep(1000);
-        //driver.quit();
+        driver.quit();
     }
 
 }
