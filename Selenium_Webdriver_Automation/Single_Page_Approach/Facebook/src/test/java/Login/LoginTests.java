@@ -48,6 +48,7 @@ public class LoginTests {
 
     }
 
+
     @Test(priority = 1)
     public void testSuccessfulLogin(){
         if (driver.getCurrentUrl ().contains ("https://www.facebook.com/"))
@@ -103,11 +104,11 @@ public class LoginTests {
 
     /* quit browser */
 
-    //@AfterClass
-   // public void closeBrowser () throws InterruptedException {
-        //Thread.sleep(1000);
-        //driver.quit();
-   // }
+    @AfterClass
+   public void closeBrowser () throws InterruptedException {
+        Thread.sleep(1000);
+        driver.quit();
+   }
 
 
 
