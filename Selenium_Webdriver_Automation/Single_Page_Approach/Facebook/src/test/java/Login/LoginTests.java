@@ -22,7 +22,7 @@ public class LoginTests {
         driver = new ChromeDriver();
 
         //fetch URL
-        driver.get("https://www.facebook.com/");
+        driver.get("https://www.facebook.com/?stype=lo&jlou=AfdsDb165lOaShnr-GwRxOG9U03b6ma0VetYF_717EO_mylNHhP1WbAHvf4F5hx7g-CWtsq5LhKvYoFF-WShC6rajpkbDytx_CrOXX_2KufgNA&smuh=7773&lh=Ac-zj0Em6--6y6XOP3s");
 
         //make the page wait a while for URL to load
         Thread.sleep(5000);
