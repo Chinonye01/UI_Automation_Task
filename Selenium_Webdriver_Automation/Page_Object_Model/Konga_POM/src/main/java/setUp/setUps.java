@@ -2,8 +2,9 @@ package setUp;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import pageObjects.LoginPage;
 
@@ -14,21 +15,21 @@ public class setUps {
     private WebDriver driver;
 
 
-        //create login object
-        protected LoginPage loginPage;
+    //create login object
+    public static LoginPage loginPage;
 
 
-@BeforeTest
+    @BeforeTest
 
-        public void setUp() {
-    //Browser set up for Chrome
-    System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
-    driver = new ChromeDriver();
-            //instantiate a web driver object
-            driver = new ChromeDriver();
-            //maximize the window
+    public void setUp() {
+        //Browser set up for Chrome
+        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+        driver = new ChromeDriver();
+
+        //maximize the window
         driver.manage().window().maximize();
-        //launch the page URL
+
+        //Visit the URL Konga
         driver.get("https://www.konga.com/");
         //let the browser generally wait
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -37,20 +38,13 @@ public class setUps {
 
     }
 
-@AfterTest
-
-public void cleanUp(){
-    //delete cookies
-    driver.manage().deleteAllCookies();
-
-}
-
-@AfterClass
-    //close the browser
-    private void closeBrowser(){
+    @AfterTest
+    public void cleanUp() throws InterruptedException {
+        //delete cookies
+        driver.manage().deleteAllCookies();
+        Thread.sleep(1000);
         driver.quit();
-
+    }
 }
 
 
-}

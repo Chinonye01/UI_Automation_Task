@@ -7,24 +7,25 @@ import setUp.setUps;
 
 public class LoginPage extends setUps {
 
+    //create a web driver object
+    private WebDriver driver;
+
     //create constructor
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
-    //create a web driver object
-    private WebDriver driver;
+
 
     //using By as a locator to identify the login fields
-    private By loginTab = By.xpath("//*[@id=\"app-content-wrapper\"]/nav/div[3]/div/div[1]/div[1]/a");
+    private By loginTab = By.xpath("//*[@id=\"app-content-wrapper\"]/div[3]/nav/div[2]/div/div[3]/div[2]/a");
     private By username = By.id("username");
     private By password = By.id("password");
-    private By loginButton = By.xpath("//*[@id=\"mainContent\"]/div/div/div/div[1]/form/div[3]/button");
+    private By loginButton = By.xpath("//*[@id=\"app-content-wrapper\"]/div[4]/section/section/aside/div[2]/div/form/div[3]/button");
 
     //create a constructor for each field
-    public void clickloginTab(){
+    public void clickLoginTab(){
         //find the first login button on the home page
         driver.findElement(loginTab).click();
-
     }
 
     public void enterUsername(String uName){
@@ -39,12 +40,14 @@ public class LoginPage extends setUps {
 
     }
 
-    public DashboardPage clickloginButton(){
+    public DashboardPage clickLoginButton(){
         //find the login button
         driver.findElement(loginButton).click();
         return new DashboardPage(driver);
     }
 
-
-
+    public String getPageTitle()
+    {
+        return driver.getTitle();
+    }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Chinonye/Documents/UI_Automation_Task/Selenium_Webdriver_Automation/Page_Object_Model/Konga_POM">
+        <classes>
+            <class name="dashboard.DashboardTests">
+                <methods>
+                    <include name="hoverOnMyAcct"/>
+                </methods>
+            </class>
+           <class name="dashboard.DashboardTests">
+               <methods>
+                   <include name="testSuccessfulLogout"/>
+               </methods>
+           </class>
+            <class name="login.LoginTests">
+                <methods>
+                    <include name="testVerifyPageTitle"/>
+                </methods>
+            </class>
+            <class name="setup.setupTests">
+                <methods>
+                    <include name="testSetUp"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
